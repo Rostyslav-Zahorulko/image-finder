@@ -1,13 +1,20 @@
 import './scss/main.scss';
-// import 'material-design-icons/iconfont/material-icons.css';
 
 // import axios from 'axios';
 
 import refs from './js/refs';
 import apiService from './js/api-service';
-import updateGalleryMarkup from './js/gallery-markup';
+import {
+  updateGalleryMarkup,
+  startListeningOnGalleryClick,
+  stopListeningOnGalleryClick,
+} from './js/gallery';
+import {
+  showNotice,
+  showSuccessMessage,
+  showErrorMessage,
+} from './js/notifications';
 import scroll from './js/scroll';
-import { showNotice, showSuccessMessage } from './js/notifications';
 
 refs.searchForm.addEventListener('submit', handleSearchFormSubmit);
 refs.loadMoreButton.addEventListener('click', fetchImages);
@@ -17,6 +24,8 @@ function handleSearchFormSubmit(event) {
 
   refs.gallery.innerHTML = '';
 
+  stopListeningOnGalleryClick();
+
   const form = event.currentTarget;
 
   apiService.query = form.elements.query.value;
@@ -24,6 +33,8 @@ function handleSearchFormSubmit(event) {
   apiService.resetPage();
 
   fetchImages();
+
+  startListeningOnGalleryClick();
 
   form.reset();
 }
@@ -45,5 +56,5 @@ function fetchImages() {
       refs.loadMoreButton.classList.remove('is-hidden');
       scroll();
     })
-    .catch(console.log);
+    .catch(({ message }) => showErrorMessage(message));
 }

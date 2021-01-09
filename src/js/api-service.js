@@ -1,12 +1,12 @@
 const apiService = {
+  baseURL: 'https://pixabay.com/api/',
+  key: '19734316-10978fed4d6ca650a445cb4b9',
   searchQuery: '',
   page: 1,
-  key: '19734316-10978fed4d6ca650a445cb4b9',
-  url: 'https://pixabay.com/api/',
 
   fetchImages() {
     return fetch(
-      `${this.url}?key=${this.key}&q=${this.searchQuery}&image_type=illustration&orientation=horizontal&category=animals&page=${this.page}&per_page=10`,
+      `${this.baseURL}?key=${this.key}&q=${this.searchQuery}&image_type=illustration&orientation=horizontal&category=animals&page=${this.page}&per_page=10`,
     )
       .then(response => response.json())
       .then(({ hits }) => {
