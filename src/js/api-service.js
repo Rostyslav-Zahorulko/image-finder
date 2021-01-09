@@ -1,4 +1,4 @@
-const apiServise = {
+const apiService = {
   searchQuery: '',
   page: 1,
   key: '19734316-10978fed4d6ca650a445cb4b9',
@@ -33,4 +33,4 @@ const apiServise = {
   },
 };
 
-export default apiServise;
+export default apiService;
