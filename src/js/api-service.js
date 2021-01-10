@@ -1,3 +1,5 @@
+// import axios from 'axios';
+
 const apiService = {
   baseURL: 'https://pixabay.com/api/',
   key: '19734316-10978fed4d6ca650a445cb4b9',

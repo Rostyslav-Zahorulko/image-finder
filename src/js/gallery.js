@@ -7,12 +7,8 @@ function updateGalleryMarkup(images) {
   refs.gallery.insertAdjacentHTML('beforeend', galleryMarkup);
 }
 
-function startListeningOnGalleryClick() {
-  refs.gallery.addEventListener('click', handleOnGalleryClick);
-}
-
-function stopListeningOnGalleryClick() {
-  refs.gallery.removeEventListener('click', handleOnGalleryClick);
+function deleteGalleryMarkup() {
+  refs.gallery.innerHTML = '';
 }
 
 function handleOnGalleryClick(event) {
@@ -26,8 +22,17 @@ function handleOnGalleryClick(event) {
   showLightbox(imageURLForLightbox);
 }
 
+function listenOnGalleryClick() {
+  refs.gallery.addEventListener('click', handleOnGalleryClick);
+}
+
+function doNotListenOnGalleryClick() {
+  refs.gallery.removeEventListener('click', handleOnGalleryClick);
+}
+
 export {
   updateGalleryMarkup,
-  startListeningOnGalleryClick,
-  stopListeningOnGalleryClick,
+  deleteGalleryMarkup,
+  listenOnGalleryClick,
+  doNotListenOnGalleryClick,
 };
