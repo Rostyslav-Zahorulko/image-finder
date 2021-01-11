@@ -2,7 +2,7 @@ import apiService from './api-service';
 import { updateGalleryMarkup } from './gallery';
 import { showLoadMoreButton, hideLoadMoreButton } from './load-more-button';
 import {
-  showNotice,
+  showInfo,
   showSuccessMessage,
   showErrorMessage,
 } from './notifications';
@@ -15,7 +15,7 @@ function fetchImages() {
     .fetchImages()
     .then(images => {
       if (images.length === 0) {
-        showNotice();
+        showInfo();
         return;
       }
 

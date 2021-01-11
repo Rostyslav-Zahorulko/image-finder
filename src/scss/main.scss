@@ -1,8 +1,9 @@
 @import './base/base';
 
+@import './components/button';
 @import './components/container';
 @import './components/section';
 
-@import './layout/button';
-@import './layout/form';
 @import './layout/gallery';
+@import './layout/loadMoreButton';
+@import './layout/searchForm';

@@ -5,6 +5,7 @@ import {
   listenOnGalleryClick,
   doNotListenOnGalleryClick,
 } from './gallery';
+import { showNotice } from './notifications';
 import fetchImages from './fetch-images';
 
 function handleSearchFormSubmit(event) {
@@ -14,6 +15,7 @@ function handleSearchFormSubmit(event) {
   const input = form.elements.query;
 
   if (input.value === '') {
+    showNotice();
     return;
   }
 

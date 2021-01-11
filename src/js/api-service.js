@@ -8,12 +8,11 @@ const apiService = {
 
   fetchImages() {
     return fetch(
-      `${this.baseURL}?key=${this.key}&q=${this.searchQuery}&image_type=illustration&orientation=horizontal&category=animals&page=${this.page}&per_page=10`,
+      `${this.baseURL}?key=${this.key}&q=${this.searchQuery}&image_type=illustration&orientation=horizontal&category=nature&page=${this.page}&per_page=10`,
     )
       .then(response => response.json())
       .then(({ hits }) => {
         this.incrementPage();
-
         return hits;
       });
   },
